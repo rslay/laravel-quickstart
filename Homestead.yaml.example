@@ -10,7 +10,7 @@ keys:
     - ~/.ssh/id_rsa
 
 folders:
-    - map: C:\Users\<ENTER USERNAME HERE>\Desktop\homestead\laravel
+    - map: C:\Users\<ENTER USERNAME HERE>\Desktop\laravel-quickstart\laravel
       to: /home/vagrant/code
 
 sites:
