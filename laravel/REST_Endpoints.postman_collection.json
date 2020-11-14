@@ -1,0 +1,1366 @@
+{
+	"info": {
+		"_postman_id": "a8158352-d262-4951-80dc-baa68bac3af1",
+		"name": "Laravel Passport REST Endpoints",
+		"description": "Base Laravel Passport QuickStart project API, codebase at https://github.com/rslay/laravel-quickstart\r\n\r\nIncludes endpoints for User registration/login, which generates access tokens for the user info endpoint, all notification endpoints, and Google My Business endpoint.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{API Token}}"
+							}
+						],
+						"url": {
+							"raw": "http://homestead.test/api/user/",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						},
+						"description": "Get own user id, name, email, and active tokens"
+					},
+					"response": [
+						{
+							"name": "info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{API Token}}"
+									}
+								],
+								"url": {
+									"raw": "http://homestead.test/api/user/",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:08:59 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": {\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"Tester T. Tested\",\n            \"email\": \"tester@homestead.test\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2020-11-13T23:02:40.000000Z\",\n            \"updated_at\": \"2020-11-13T23:02:40.000000Z\"\n        },\n        \"tokens\": {\n            \"id\": \"bbb98ae78ce6b11ef0dae911d0d510739e6474788dd5d92715f262afbeabf0ce0d1880e9a07e4ba1\",\n            \"user_id\": 1,\n            \"client_id\": \"91f2e59a-b8c2-4c77-91c6-4e9c4377ffdc\",\n            \"name\": \"authToken\",\n            \"scopes\": [],\n            \"revoked\": false,\n            \"created_at\": \"2020-11-13 23:05:21\",\n            \"updated_at\": \"2020-11-13 23:05:21\",\n            \"expires_at\": \"2021-11-13T23:05:21.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tester T. Tested",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "tester@homestead.test",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://homestead.test/api/user/register",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						},
+						"description": "Create a user and user token"
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Tester T. Tested",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "tester@homestead.test",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://homestead.test/api/user/register",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:02:40 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5MWYyZTU5YS1iOGMyLTRjNzctOTFjNi00ZTljNDM3N2ZmZGMiLCJqdGkiOiI3YTg4MTBlNjJiYzAzMzY1MTA5YzZmYTQ1YWZkOGZlMjE0MGViOWZhNTc0MzVlYWNiZTQ2ZTQwNmQ0OGU5ZDRkMDU4YzhiNDQwODdhMWYwYiIsImlhdCI6MTYwNTMwODU2MCwibmJmIjoxNjA1MzA4NTYwLCJleHAiOjE2MzY4NDQ1NjAsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.ISFgDtDtiIYHzdyVjUg-5p0j6rB0_TdFMkyauxZ8pZoZGTlBtTYc49_I_gtty_OYzGYyN3py3LkkJ_kLT5EL7FiF-v7LD9f7bjpo7j94OjayyW9tJq2HrWxhg0PxRIp7MzQ0JpjxSP8FczPiTBYz90UAU3GYjLLpsDnu3GN9IsJDLXSxYoE9HaHVC5HWF-gBU6VIVMWrQNJ9MCY8Z9ps9mddgg7DrfZevtResPBCIzYV4NsrLwvDqYYF4g1iPcQ4vIf9v7mQNtmuiIByMHRSxAFbLatxxh06FgGMbISZCnpCjIIIl6Wjr3XdBsiCPQlqH49YJmYwdgyQ5Q9TbZHJdL0v1lqk0ZrOtvRGm16Teson7olv27oZIKCQHMG0bFtCYCkbqbK4j4zv_mUfjL07mk7Y3eKfs6z0LwtjDFeQlYlJ_ZdNH-9IpSfksQq1cFwQB7Kd85yj-zcklDCSWCh6PygrTNNuxBQnzi3tAiTF9O7MTGTiVjlvmobYp9RwPt9UfQdQJ224P4FBnMphkTgu8CnSdUDxGTkxmkWnujDm36UjHd1MserM4CGKWB10GQSMUsbMIm5L9w77w4p2VTw_IUZ6aqkNee5mN1SVXVq-MlN9fBGvSSANa4BaMb2p5Lla9hdOQOe-C2OiLeZH92VSF-Yyxj2rDqnUyYXOpaDodGI\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "tester@homestead.test",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://homestead.test/api/user/login",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						},
+						"description": "Create a user token for an existing user"
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "tester@homestead.test",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://homestead.test/api/user/login",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:05:21 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"Tester T. Tested\",\n        \"email\": \"tester@homestead.test\",\n        \"email_verified_at\": null,\n        \"created_at\": \"2020-11-13T23:02:40.000000Z\",\n        \"updated_at\": \"2020-11-13T23:02:40.000000Z\"\n    },\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5MWYyZTU5YS1iOGMyLTRjNzctOTFjNi00ZTljNDM3N2ZmZGMiLCJqdGkiOiJiYmI5OGFlNzhjZTZiMTFlZjBkYWU5MTFkMGQ1MTA3MzllNjQ3NDc4OGRkNWQ5MjcxNWYyNjJhZmJlYWJmMGNlMGQxODgwZTlhMDdlNGJhMSIsImlhdCI6MTYwNTMwODcyMSwibmJmIjoxNjA1MzA4NzIxLCJleHAiOjE2MzY4NDQ3MjEsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.vIOi14Od-aES_tBF5SUVqmiFavwwYexC6ooXyVQI_sqeQyknpZM-RCjinjZ_kKrv5Ta1sRm7HgAwbEoAHsP2TSf2VlYkASzh8C_jNZhGmJjwLxpCmYbiH2SZtUhwAV09muBK8mdYK78C_CLh1N7MuZbfi4Ej-jobQ5v_duaVUxgCDS9882N6rI08mDKQufyY-4VWt8XR_MgO0DgwnLfbsHW_Ky0Dn6aasilfxREg5-IDFGvsvTqxNZqRKneyMVDSaE7LfAMXYZoYQOhBXXkuDBVH-sdD92hD4MYuMYwLejTD8gMMTLCIC_PNtNP3J9MT-0YwxDIrbTQnIumjfq7uy7F65xyhZkhhJrLcs3uBs9RFLAnjwVpeLEZdFSha525tbOVOqbhm9BIYKW1qT-QgvzF5qyy9Fz3tw4wC2QMpP9tlQCLjl1manf4ZColLHCWeiPSBOYy3IFEGOapRdaA6CsEvwawhWMENakySguyX2ProwI1Fo-72aIkH2vdxqrztsglFrsrvIqEvrSKtackKXfo5bCjC8ub9BW-NWpAedvkYiUXFsU9WSZKndoj3KUWJAtjhw5ZwrwOlwNrcOQBJOAcy3UHXtwNuxydiSRarYu4y-Y5OLXueMcf3Ts_nvfkpI8tK43g6HHbu_3le5o4UxJoQolm8hJA0xDP3a7VP3NA\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "notification",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{API Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "text",
+									"value": "Hello, world!",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://homestead.test/api/user/notification/create",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"notification",
+								"create"
+							]
+						},
+						"description": "Create a notification for a user"
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{API Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "text",
+											"value": "Hello world! This is a notification!",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://homestead.test/api/user/notification/create",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"notification",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:24:14 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"notifications\": [\n        {\n            \"user_id\": 1,\n            \"text\": \"Hello world! This is a notification!\",\n            \"status\": false,\n            \"updated_at\": \"2020-11-13T23:24:14.000000Z\",\n            \"created_at\": \"2020-11-13T23:24:14.000000Z\",\n            \"id\": 1\n        }\n    ],\n    \"info\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "list all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{API Token}}"
+							}
+						],
+						"url": {
+							"raw": "http://homestead.test/api/user/notification/all",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"notification",
+								"all"
+							]
+						},
+						"description": "Get all notifications for a user"
+					},
+					"response": [
+						{
+							"name": "list all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{API Token}}"
+									}
+								],
+								"url": {
+									"raw": "http://homestead.test/api/user/notification/all",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"notification",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:24:54 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"modified_count\": 0,\n    \"notifications\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"text\": \"Hello world! This is a notification!\",\n            \"status\": 1,\n            \"created_at\": \"2020-11-13T23:24:14.000000Z\",\n            \"updated_at\": \"2020-11-13T23:24:36.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "list unread",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{API Token}}"
+							}
+						],
+						"url": {
+							"raw": "http://homestead.test/api/user/notification/unread",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"notification",
+								"unread"
+							]
+						},
+						"description": "Get unread notifications (status of 0), marking them as read (status of 1) for a user"
+					},
+					"response": [
+						{
+							"name": "list unread",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{API Token}}"
+									}
+								],
+								"url": {
+									"raw": "http://homestead.test/api/user/notification/unread",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"notification",
+										"unread"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:24:36 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"modified_count\": 1,\n    \"notifications\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"text\": \"Hello world! This is a notification!\",\n            \"status\": 0,\n            \"created_at\": \"2020-11-13T23:24:14.000000Z\",\n            \"updated_at\": \"2020-11-13T23:24:14.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "list read",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{API Token}}"
+							}
+						],
+						"url": {
+							"raw": "http://homestead.test/api/user/notification/read",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"notification",
+								"read"
+							]
+						},
+						"description": "Get already read notifications (status of 1) for a user"
+					},
+					"response": [
+						{
+							"name": "list read",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{API Token}}"
+									}
+								],
+								"url": {
+									"raw": "http://homestead.test/api/user/notification/read",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"notification",
+										"read"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:24:47 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"modified_count\": 0,\n    \"notifications\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"text\": \"Hello world! This is a notification!\",\n            \"status\": 1,\n            \"created_at\": \"2020-11-13T23:24:14.000000Z\",\n            \"updated_at\": \"2020-11-13T23:24:36.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "mark as read",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{API Token}}"
+							}
+						],
+						"url": {
+							"raw": "http://homestead.test/api/user/notification/mark_as_read/1",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"notification",
+								"mark_as_read",
+								"1"
+							]
+						},
+						"description": "Mark notification as read (status of 1) for a user"
+					},
+					"response": [
+						{
+							"name": "mark as read",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{API Token}}"
+									}
+								],
+								"url": {
+									"raw": "http://homestead.test/api/user/notification/mark_as_read/1",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"notification",
+										"mark_as_read",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:25:18 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"modified_count\": 1,\n    \"notifications\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"text\": \"Hello world! This is a notification!\",\n            \"status\": 0,\n            \"created_at\": \"2020-11-13T23:24:14.000000Z\",\n            \"updated_at\": \"2020-11-13T23:25:10.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "mark as unread",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{API Token}}"
+							}
+						],
+						"url": {
+							"raw": "http://homestead.test/api/user/notification/mark_as_unread/1",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"notification",
+								"mark_as_unread",
+								"1"
+							]
+						},
+						"description": "Mark notification as unread (status of 0) for a user"
+					},
+					"response": [
+						{
+							"name": "mark as unread",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{API Token}}"
+									}
+								],
+								"url": {
+									"raw": "http://homestead.test/api/user/notification/mark_as_unread/1",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"notification",
+										"mark_as_unread",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:25:10 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "54"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"modified_count\": 1,\n    \"notifications\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"text\": \"Hello world! This is a notification!\",\n            \"status\": 1,\n            \"created_at\": \"2020-11-13T23:24:14.000000Z\",\n            \"updated_at\": \"2020-11-13T23:25:06.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{API Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://homestead.test/api/user/notification/delete/1",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"notification",
+								"delete",
+								"1"
+							]
+						},
+						"description": "Delete a notification given an id for a user"
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{API Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://homestead.test/api/user/notification/delete/1",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"notification",
+										"delete",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:26:09 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"modified_count\": 1,\n    \"notifications\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"text\": \"Hello world! This is a notification!\",\n            \"status\": 1,\n            \"created_at\": \"2020-11-13T23:24:14.000000Z\",\n            \"updated_at\": \"2020-11-13T23:25:18.000000Z\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete all",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{API Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://homestead.test/api/user/notification/delete_all",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"notification",
+								"delete_all"
+							]
+						},
+						"description": "Delete all notifications for a user"
+					},
+					"response": [
+						{
+							"name": "delete all",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{API Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://homestead.test/api/user/notification/delete_all",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"user",
+										"notification",
+										"delete_all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 23:27:24 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"modified_count\": 2,\n    \"notifications\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"text\": \"Hello world! This is a notification!\",\n            \"status\": 0,\n            \"created_at\": \"2020-11-13T23:26:55.000000Z\",\n            \"updated_at\": \"2020-11-13T23:26:55.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"user_id\": 1,\n            \"text\": \"Goodbye, world! This is my final notification!\",\n            \"status\": 0,\n            \"created_at\": \"2020-11-13T23:27:20.000000Z\",\n            \"updated_at\": \"2020-11-13T23:27:20.000000Z\"\n        }\n    ],\n    \"info\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "external",
+			"item": [
+				{
+					"name": "Yelp API call",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "{{API Token}}"
+							}
+						],
+						"url": {
+							"raw": "http://homestead.test/api/yelp_external?term=SEARCH_TERM&location=SEARCH_LOCATION",
+							"protocol": "http",
+							"host": [
+								"homestead",
+								"test"
+							],
+							"path": [
+								"api",
+								"yelp_external"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "SEARCH_TERM"
+								},
+								{
+									"key": "location",
+									"value": "SEARCH_LOCATION"
+								}
+							]
+						},
+						"description": "Forward query to external Yelp API, limiting results to 5"
+					},
+					"response": [
+						{
+							"name": "Yelp API call",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "{{API Token}}"
+									}
+								],
+								"url": {
+									"raw": "http://homestead.test/api/yelp_external?term=SEARCH_TERM&location=SEARCH_LOCATION",
+									"protocol": "http",
+									"host": [
+										"homestead",
+										"test"
+									],
+									"path": [
+										"api",
+										"yelp_external"
+									],
+									"query": [
+										{
+											"key": "term",
+											"value": "SEARCH_TERM"
+										},
+										{
+											"key": "location",
+											"value": "SEARCH_LOCATION"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.15.8"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Nov 2020 00:33:39 GMT"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"businesses\": [\n        {\n            \"id\": \"Bt6uTqhTX2VocRlOOnw_bA\",\n            \"alias\": \"mountaintop-realty-and-rentals-davis\",\n            \"name\": \"Mountaintop Realty & Rentals\",\n            \"image_url\": \"https://s3-media2.fl.yelpcdn.com/bphoto/NPM-tml90ZOYaOWPIPsERw/o.jpg\",\n            \"is_closed\": false,\n            \"url\": \"https://www.yelp.com/biz/mountaintop-realty-and-rentals-davis?adjust_creative=97eAKS1LMDvmeer5gW1uSA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=97eAKS1LMDvmeer5gW1uSA\",\n            \"review_count\": 17,\n            \"categories\": [\n                {\n                    \"alias\": \"propertymgmt\",\n                    \"title\": \"Property Management\"\n                }\n            ],\n            \"rating\": 2,\n            \"coordinates\": {\n                \"latitude\": 39.0470131969904,\n                \"longitude\": -79.4465921687866\n            },\n            \"transactions\": [],\n            \"location\": {\n                \"address1\": \"6379 Appalachian Hwy\",\n                \"address2\": \"\",\n                \"address3\": \"\",\n                \"city\": \"Davis\",\n                \"zip_code\": \"26260\",\n                \"country\": \"US\",\n                \"state\": \"WV\",\n                \"display_address\": [\n                    \"6379 Appalachian Hwy\",\n                    \"Davis, WV 26260\"\n                ]\n            },\n            \"phone\": \"+18006244341\",\n            \"display_phone\": \"(800) 624-4341\",\n            \"distance\": 24788.46025887558\n        },\n        {\n            \"id\": \"pQHbijutELOYznrpPqhOkA\",\n            \"alias\": \"nemacolin-woodlands-resort-farmington\",\n            \"name\": \"Nemacolin Woodlands Resort\",\n            \"image_url\": \"https://s3-media1.fl.yelpcdn.com/bphoto/wq7087cMhAFXWce07S2V-w/o.jpg\",\n            \"is_closed\": false,\n            \"url\": \"https://www.yelp.com/biz/nemacolin-woodlands-resort-farmington?adjust_creative=97eAKS1LMDvmeer5gW1uSA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=97eAKS1LMDvmeer5gW1uSA\",\n            \"review_count\": 163,\n            \"categories\": [\n                {\n                    \"alias\": \"resorts\",\n                    \"title\": \"Resorts\"\n                }\n            ],\n            \"rating\": 3.5,\n            \"coordinates\": {\n                \"latitude\": 39.8029204961404,\n                \"longitude\": -79.5544578703861\n            },\n            \"transactions\": [],\n            \"location\": {\n                \"address1\": \"1001 Lafayette Dr\",\n                \"address2\": \"\",\n                \"address3\": \"\",\n                \"city\": \"Farmington\",\n                \"zip_code\": \"15437\",\n                \"country\": \"US\",\n                \"state\": \"PA\",\n                \"display_address\": [\n                    \"1001 Lafayette Dr\",\n                    \"Farmington, PA 15437\"\n                ]\n            },\n            \"phone\": \"+17247802143\",\n            \"display_phone\": \"(724) 780-2143\",\n            \"distance\": 65880.16159152242\n        },\n        {\n            \"id\": \"lDfcYGHr9sDzjQ2kzPw7ww\",\n            \"alias\": \"american-disposal-services-manassas\",\n            \"name\": \"American Disposal Services\",\n            \"image_url\": \"https://s3-media2.fl.yelpcdn.com/bphoto/FrrKOLi3GgJj3eqitVWaqA/o.jpg\",\n            \"is_closed\": false,\n            \"url\": \"https://www.yelp.com/biz/american-disposal-services-manassas?adjust_creative=97eAKS1LMDvmeer5gW1uSA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=97eAKS1LMDvmeer5gW1uSA\",\n            \"review_count\": 359,\n            \"categories\": [\n                {\n                    \"alias\": \"junkremovalandhauling\",\n                    \"title\": \"Junk Removal & Hauling\"\n                },\n                {\n                    \"alias\": \"recyclingcenter\",\n                    \"title\": \"Recycling Center\"\n                }\n            ],\n            \"rating\": 1.5,\n            \"coordinates\": {\n                \"latitude\": 38.74273,\n                \"longitude\": -77.5006\n            },\n            \"transactions\": [],\n            \"location\": {\n                \"address1\": \"10370 Central Park Dr\",\n                \"address2\": \"\",\n                \"address3\": \"\",\n                \"city\": \"Manassas\",\n                \"zip_code\": \"20110\",\n                \"country\": \"US\",\n                \"state\": \"VA\",\n                \"display_address\": [\n                    \"10370 Central Park Dr\",\n                    \"Manassas, VA 20110\"\n                ]\n            },\n            \"phone\": \"+17033680500\",\n            \"display_phone\": \"(703) 368-0500\",\n            \"distance\": 191974.7400818966\n        },\n        {\n            \"id\": \"JrEEn-KvqX_B2KM3FF1FDg\",\n            \"alias\": \"n-stuff-music-pittsburgh\",\n            \"name\": \"N Stuff Music\",\n            \"image_url\": \"https://s3-media1.fl.yelpcdn.com/bphoto/WXKg0SD_Od7kkrH2F3fXGA/o.jpg\",\n            \"is_closed\": false,\n            \"url\": \"https://www.yelp.com/biz/n-stuff-music-pittsburgh?adjust_creative=97eAKS1LMDvmeer5gW1uSA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=97eAKS1LMDvmeer5gW1uSA\",\n            \"review_count\": 26,\n            \"categories\": [\n                {\n                    \"alias\": \"musicalinstrumentsandteachers\",\n                    \"title\": \"Musical Instruments & Teachers\"\n                },\n                {\n                    \"alias\": \"guitarstores\",\n                    \"title\": \"Guitar Stores\"\n                }\n            ],\n            \"rating\": 4.5,\n            \"coordinates\": {\n                \"latitude\": 40.4958388,\n                \"longitude\": -79.8574779\n            },\n            \"transactions\": [],\n            \"price\": \"$$\",\n            \"location\": {\n                \"address1\": \"468 Freeport Rd\",\n                \"address2\": \"\",\n                \"address3\": \"\",\n                \"city\": \"Pittsburgh\",\n                \"zip_code\": \"15238\",\n                \"country\": \"US\",\n                \"state\": \"PA\",\n                \"display_address\": [\n                    \"468 Freeport Rd\",\n                    \"Pittsburgh, PA 15238\"\n                ]\n            },\n            \"phone\": \"+14128281003\",\n            \"display_phone\": \"(412) 828-1003\",\n            \"distance\": 143781.29609167698\n        },\n        {\n            \"id\": \"7yKUnpgwIIzLjCT1VGxGaQ\",\n            \"alias\": \"staymobile-charlottesville-2\",\n            \"name\": \"Staymobile\",\n            \"image_url\": \"https://s3-media2.fl.yelpcdn.com/bphoto/3ibkQFKHSFJELAglcIP0PA/o.jpg\",\n            \"is_closed\": false,\n            \"url\": \"https://www.yelp.com/biz/staymobile-charlottesville-2?adjust_creative=97eAKS1LMDvmeer5gW1uSA&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=97eAKS1LMDvmeer5gW1uSA\",\n            \"review_count\": 39,\n            \"categories\": [\n                {\n                    \"alias\": \"electronicsrepair\",\n                    \"title\": \"Electronics Repair\"\n                },\n                {\n                    \"alias\": \"mobilephonerepair\",\n                    \"title\": \"Mobile Phone Repair\"\n                },\n                {\n                    \"alias\": \"cellphoneaccessories\",\n                    \"title\": \"Mobile Phone Accessories\"\n                }\n            ],\n            \"rating\": 4.5,\n            \"coordinates\": {\n                \"latitude\": 38.03397,\n                \"longitude\": -78.49884\n            },\n            \"transactions\": [],\n            \"price\": \"$$\",\n            \"location\": {\n                \"address1\": \"1325 W Main St\",\n                \"address2\": \"Ste A\",\n                \"address3\": \"\",\n                \"city\": \"Charlottesville\",\n                \"zip_code\": \"22903\",\n                \"country\": \"US\",\n                \"state\": \"VA\",\n                \"display_address\": [\n                    \"1325 W Main St\",\n                    \"Ste A\",\n                    \"Charlottesville, VA 22903\"\n                ]\n            },\n            \"phone\": \"+14349777763\",\n            \"display_phone\": \"(434) 977-7763\",\n            \"distance\": 164288.42846475332\n        }\n    ],\n    \"total\": 5,\n    \"region\": {\n        \"center\": {\n            \"longitude\": -79.63714599609375,\n            \"latitude\": 39.21388996791195\n        }\n    }\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9e321dc7-21f9-4fb8-a1ce-cb71d7ddf0b3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3efe7486-f511-476e-916f-73e7276e1372",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c6e1bda3-8e76-42db-abb0-12f37a3c705c",
+			"key": "API Token",
+			"value": "Bearer YOUR_USER_ACCESS_TOKEN"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
