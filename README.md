@@ -18,14 +18,14 @@ If you already have an environment set up - either with Docker, natively on your
 
 (_Skip this step if you already have an environment to run Laravel in_)
 
+- Clone this repo into a desired folder (`git clone https://github.com/rslay/laravel-quickstart`)
 - Install [Vagrant](https://www.vagrantup.com/downloads)
     - _On Linux_, use your package manager, e.g. `sudo apt install virtualbox`
-- Run `vagrant box add laravel/homestead`
-- Clone this repo into a desired folder (`git clone https://github.com/rslay/laravel-quickstart`)
 - Copy `Homestead.yaml.example` to `Homestead.yaml`, then in that new file...
-- Modify `C:\Users\<ENTER USERNAME HERE>\Desktop\homestead\laravel` to match the path to the `laravel` folder on your machine
+- Modify `C:\Users\<ENTER USERNAME HERE>\Desktop\laravel-quickstart\laravel` to match the path to the `laravel` folder on your machine
     - Change `\` to `/` if you are on Linux and use the appropriate path instead (use the `pwd` command while in the `laravel-quickstart` folder)
-- Run `vagrant up && vagrant ssh` while in the `homestead` folder (**IMPORTANT:** must be done in a terminal run **as Administrator on Windows**)
+- Run `vagrant box add laravel/homestead --box-version 10.1.1` to download the laravel homestead VM
+- Run `vagrant up && vagrant ssh` while in the `laravel-quickstart` folder (**IMPORTANT:** must be done in a terminal run **as Administrator on Windows**)
 
 If all went well, you should now be in a terminal in the VM running Homestead. Go to step 2 below and enter the commands.
 
@@ -36,19 +36,24 @@ Lets configure the local environment:
 ```bash
 cd /home/vagrant/code
 composer install
-yarn
-yarn add vue-template-compiler
 cp .env.example .env
 php artisan key:generate
-php artisan passport:install --force
 php artisan migrate
+php artisan passport:install --force
 ```
 
-Open up the Laravel folder in your favorite IDE and get started coding!
+Want to use VueJS and the frontend? Run these commands (on Windows, you have to run the terminal as Administrator):
 
-You can open a shell to the machine with `vagrant ssh` anytime.
+```bash
+yarn
+yarn add vue-template-compiler
+```
 
 > **NOTE:** Do not use `npm`! Run `yarn run watch` instead, `npm` currently has an issue in vagrant with shared folders.
+
+Done! Open up the Laravel folder in your favorite IDE and get started coding!
+
+You can open a shell to the machine with `vagrant ssh` anytime.
 
 ## Features
 
@@ -63,7 +68,7 @@ The example routes, controllers, and models form an API with:
 
 #### [View the API documentation Online!](https://documenter.getpostman.com/view/13272092/TVejiW5G)
 
-The importable **Postman JSON collection contains 12 different requests, [click here to download the Postman file](laravel/postman.json)**. It is present at the base of the laravel project folder.
+The importable **Postman JSON collection contains 12 different requests, [click here to download the Postman file](laravel/REST_Endpoints.postman_collection.json)**. It is present at the base of the laravel project folder.
 
 You can import this to your postman by going to **Import** at the top left of the Postman desktop app.
 
